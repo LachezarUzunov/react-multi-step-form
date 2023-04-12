@@ -12,3 +12,11 @@
   border-radius: 1rem;
   width: 33%;
 }
+
+.progress_sixty {
+  width: 66%;
+}
+
+.progress_full {
+  width: 100%;
+}

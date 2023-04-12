@@ -23,13 +23,23 @@ const VerifyMobile = ({ props }) => {
           <img src={require("../assets/mobile.png")} alt="phone" />
         </div>
         <div>
-          <form className="form">
-            <label htmlFor="mobile">Mobile No.</label>
-            <input id="mobile" placeholder="Enter your mobile no." />
-            <label htmlFor="email">Email address</label>
-            <input id="email" placeholder="Enter your email id" />
+          <form className={classes.form}>
+            <label htmlFor="mobile">Verification code</label>
+            <input
+              id="mobile"
+              placeholder="Enter 6-digit verification code here"
+            />
             <button className="btn__width primary__btn">Continue</button>
           </form>
+        </div>
+        <div>
+          <p>
+            Didn't receive code? <span>Resend Code</span>
+          </p>
+          <p>OR</p>
+          <p>
+            <span className={classes.or}>Send verification code on email</span>
+          </p>
         </div>
       </Card>
     </section>

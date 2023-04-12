@@ -48,7 +48,6 @@ p {
   font-size: 1.4rem;
   text-align: center;
   margin-top: 2rem;
-  margin-bottom: 5.5rem;
 }
 
 label {
@@ -121,13 +120,12 @@ span {
 }
 
 .verify__section {
-  margin: 0 auto;
   margin-top: 10rem;
-  width: 49.5rem;
+  min-height: 42rem;
 }
 
 .arrow {
-  margin-top: 1rem;
+  margin-top: 0.6rem;
   width: 1.9rem;
   height: 1.9rem;
 }
@@ -138,7 +136,6 @@ span {
   margin-bottom: 3rem;
 }
 
-.form {
-  margin: 0 auto;
-  width: 34.5rem;
+.success {
+  margin-top: 14rem;
 }

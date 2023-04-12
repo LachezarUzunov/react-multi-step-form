@@ -22,7 +22,7 @@ const EmailOrPhone = () => {
           <img src={require("../assets/mobile.png")} alt="phone" />
         </div>
         <div>
-          <form className="form">
+          <form className={classes.form}>
             <label htmlFor="mobile">Mobile No.</label>
             <input id="mobile" placeholder="Enter your mobile no." />
             <label htmlFor="email">Email address</label>
