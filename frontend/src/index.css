@@ -95,6 +95,11 @@ span {
   height: 4.5rem;
   width: 27.4rem;
   color: white;
+  cursor: pointer;
+}
+
+.btn__width {
+  width: 34.5rem;
 }
 
 .secondary__btn {
@@ -107,4 +112,33 @@ span {
   text-align: center;
   width: 17.5rem;
   height: 4.5rem;
+  cursor: pointer;
+}
+
+.verify__header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.verify__section {
+  margin: 0 auto;
+  margin-top: 10rem;
+  width: 49.5rem;
+}
+
+.arrow {
+  margin-top: 1rem;
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+.mobile__img {
+  text-align: center;
+  margin-top: 3.975rem;
+  margin-bottom: 3rem;
+}
+
+.form {
+  margin: 0 auto;
+  width: 34.5rem;
 }

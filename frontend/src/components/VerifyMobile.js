@@ -1,13 +1,14 @@
 import React from "react";
-import classes from "./EmailOrPhone.module.css";
+import Card from "./Card";
 import ProgressBar from "./ProgressBar";
+import classes from "./VerifyMobile.module.css";
 
-const EmailOrPhone = () => {
+const VerifyMobile = ({ props }) => {
   return (
-    <section className={classes.emailPhone__section}>
-      <h3 className={classes.welcome}>Welcome to Website</h3>
-      <section className={classes.box}>
-        <ProgressBar width={33} />
+    <section className="verify__section">
+      <h3 className="verify__header">Verify your mobile number</h3>
+      <Card>
+        <ProgressBar width={66} />
         <div className={classes.header}>
           <img
             className="arrow"
@@ -15,7 +16,7 @@ const EmailOrPhone = () => {
             alt="left-arrow"
           />
           <h5 className={classes.enter__email}>
-            Enter your mobile no. & email id
+            A 6-digit code has been sent as a text message to
           </h5>
         </div>
         <div className="mobile__img">
@@ -30,15 +31,9 @@ const EmailOrPhone = () => {
             <button className="btn__width primary__btn">Continue</button>
           </form>
         </div>
-        <div>
-          <p>
-            By signing up, I agree to the <span>Privary Policy</span> &{" "}
-            <span>Terms of Use</span>
-          </p>
-        </div>
-      </section>
+      </Card>
     </section>
   );
 };
 
-export default EmailOrPhone;
+export default VerifyMobile;
