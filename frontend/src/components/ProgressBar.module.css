@@ -1,0 +1,14 @@
+.bar {
+  width: 49.2rem;
+  height: 0.7rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: #e0e0e0;
+}
+
+.progress {
+  background-color: #6d2bc1;
+  height: 0.7rem;
+  border-radius: 1rem;
+  width: 33%;
+}

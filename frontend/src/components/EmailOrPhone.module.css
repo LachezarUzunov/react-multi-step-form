@@ -1,0 +1,43 @@
+.emailPhone__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome {
+  margin-top: 7.9rem;
+}
+
+.box {
+  margin-top: 4.1rem;
+  width: 49.5rem;
+  border: 1px solid #e0e0e0;
+  box-shadow: 1px 4px 40px 2px rgba(129, 129, 165, 0.07);
+  border-radius: 10px;
+}
+
+.header {
+  margin-top: 5rem;
+  margin-left: 4rem;
+  display: flex;
+  gap: 5.55rem;
+}
+
+.enter__email {
+  color: black;
+}
+
+.mobile__img {
+  text-align: center;
+  margin-top: 3.975rem;
+  margin-bottom: 3rem;
+}
+
+.form {
+  margin: 0 auto;
+  width: 34.5rem;
+}
+
+.btn__width {
+  width: 34.5rem;
+}

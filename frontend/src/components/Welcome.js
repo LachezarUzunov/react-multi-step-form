@@ -23,7 +23,9 @@ const Welcome = () => {
         </div>
         <div className={classes.box__text}>
           <h4>I have an account</h4>
-          <button className="primary__btn">Login Now</button>
+          <button className={`${classes.btn__width} primary__btn`}>
+            Login Now
+          </button>
         </div>
       </article>
     </section>
