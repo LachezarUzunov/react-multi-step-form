@@ -10,6 +10,9 @@ export const FormProvider = ({ children }) => {
   });
 
   const onSubmit = (data) => {
+    if (data.mobileNum.length === 1 || data.emailAddress.length === 1) {
+      return;
+    }
     console.log(data);
   };
 
