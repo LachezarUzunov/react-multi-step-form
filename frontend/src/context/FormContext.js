@@ -9,6 +9,10 @@ export const FormProvider = ({ children }) => {
     newUser: false,
   });
 
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   const [step, setStep] = useState(0);
 
   const title = {
@@ -20,7 +24,9 @@ export const FormProvider = ({ children }) => {
   };
 
   return (
-    <FormContext.Provider value={{ data, setData, step, setStep, title }}>
+    <FormContext.Provider
+      value={{ data, setData, step, setStep, title, onSubmit }}
+    >
       {children}
     </FormContext.Provider>
   );

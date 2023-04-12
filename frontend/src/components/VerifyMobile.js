@@ -7,6 +7,10 @@ import useFormContext from "../hooks/useFormContext";
 const VerifyMobile = () => {
   const { setStep } = useFormContext();
 
+  const lastStep = () => {
+    setStep((prevState) => prevState + 2);
+  };
+
   const nextStep = () => {
     setStep((prevState) => prevState + 1);
   };
@@ -35,7 +39,7 @@ const VerifyMobile = () => {
               id="mobile"
               placeholder="Enter 6-digit verification code here"
             />
-            <button onClick={nextStep} className="btn__width primary__btn">
+            <button onClick={lastStep} className="btn__width primary__btn">
               Continue
             </button>
           </form>
@@ -46,7 +50,9 @@ const VerifyMobile = () => {
           </p>
           <p>OR</p>
           <p>
-            <span className={classes.or}>Send verification code on email</span>
+            <span onClick={nextStep} className={classes.or}>
+              Send verification code on email
+            </span>
           </p>
         </div>
       </Card>

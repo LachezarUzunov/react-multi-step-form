@@ -4,14 +4,22 @@ import ProgressBar from "./ProgressBar";
 import useFormContext from "../hooks/useFormContext";
 
 const EmailOrPhone = () => {
-  const { setStep } = useFormContext();
+  const { setStep, setData, data, onSubmit } = useFormContext();
 
   const onGoingBack = () => {
     console.log("clicked");
     setStep((prevState) => prevState - 1);
   };
 
-  const nextStep = () => {
+  const onChange = (e) => {
+    setData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const nextStep = (e) => {
+    onSubmit(data);
     setStep((prevState) => prevState + 1);
   };
 
@@ -37,10 +45,22 @@ const EmailOrPhone = () => {
         </div>
         <div>
           <form className={classes.form}>
-            <label htmlFor="mobile">Mobile No.</label>
-            <input id="mobile" placeholder="Enter your mobile no." />
-            <label htmlFor="email">Email address</label>
-            <input id="email" placeholder="Enter your email id" />
+            <label htmlFor="mobileNum">Mobile No.</label>
+            <input
+              onChange={onChange}
+              name="mobileNum"
+              id="mobileNum"
+              placeholder="Enter your mobile no."
+              value={data.mobileNum}
+            />
+            <label htmlFor="emailAddress">Email address</label>
+            <input
+              onChange={onChange}
+              name="emailAddress"
+              id="emailAddress"
+              placeholder="Enter your email id"
+              value={data.emailAddress}
+            />
             <button onClick={nextStep} className="btn__width primary__btn">
               Continue
             </button>

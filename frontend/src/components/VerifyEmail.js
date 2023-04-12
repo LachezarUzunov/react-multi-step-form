@@ -11,6 +11,10 @@ const VerifyEmail = () => {
     setStep((prevState) => prevState + 1);
   };
 
+  const previousStep = () => {
+    setStep((prevState) => prevState - 1);
+  };
+
   return (
     <section className="verify__section">
       <h3 className="verify__header">Verify your email address</h3>
@@ -47,7 +51,7 @@ const VerifyEmail = () => {
           </p>
           <p>OR</p>
           <p>
-            <span className={classes.or}>
+            <span onClick={previousStep} className={classes.or}>
               Send verification code on mobile no.
             </span>
           </p>
