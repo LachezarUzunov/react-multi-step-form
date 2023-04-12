@@ -33,9 +33,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(errorHandler);
+//app.use(errorHandler);
 
-app.post("/", (req, res) => {
+app.post("/api", (req, res) => {
   res.send("Hello");
 });
 

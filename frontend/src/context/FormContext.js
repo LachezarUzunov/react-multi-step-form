@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 
 const FormContext = createContext();
+const APP_URL = `http://localhost:5000/api`;
 
 export const FormProvider = ({ children }) => {
   const [data, setData] = useState({
@@ -9,11 +10,28 @@ export const FormProvider = ({ children }) => {
     newUser: false,
   });
 
-  const onSubmit = (data) => {
-    if (data.mobileNum.length === 1 || data.emailAddress.length === 1) {
-      return;
-    }
+  const onSubmit = async () => {
     console.log(data);
+    try {
+      const res = await fetch(APP_URL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const result = await res.json();
+      return result;
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return message;
+    }
   };
 
   const [step, setStep] = useState(0);
