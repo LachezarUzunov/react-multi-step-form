@@ -23,7 +23,47 @@ h1 {
   font-weight: 600;
 }
 
-.secondary_btn {
+h3 {
+  font-size: 2.4rem;
+  line-height: 3.375rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 2.1rem;
+  line-height: 3.15rem;
+  color: #333333;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 2.79rem;
+  color: #8181a5;
+}
+
+.form {
+  margin: 0 auto;
+}
+
+.primary__btn {
+  margin-top: 1.6rem;
+  background-color: #001b36;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 1.6rem;
+  letter-spacing: 0.089rem;
+  text-transform: uppercase;
+  text-align: center;
+  height: 4.5rem;
+  width: 27.4rem;
+  color: white;
+}
+
+.secondary__btn {
   background-color: #febd2c;
   text-transform: uppercase;
   border-radius: 4px;
