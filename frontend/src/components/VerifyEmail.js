@@ -2,8 +2,15 @@ import React from "react";
 import classes from "./VerifyEmail.module.css";
 import Card from "./Card";
 import ProgressBar from "./ProgressBar";
+import useFormContext from "../hooks/useFormContext";
 
 const VerifyEmail = () => {
+  const { setStep } = useFormContext();
+
+  const nextStep = () => {
+    setStep((prevState) => prevState + 1);
+  };
+
   return (
     <section className="verify__section">
       <h3 className="verify__header">Verify your email address</h3>
@@ -29,7 +36,9 @@ const VerifyEmail = () => {
               id="mobile"
               placeholder="Enter 6-digit verification code here"
             />
-            <button className="btn__width primary__btn">Continue</button>
+            <button onClick={nextStep} className="btn__width primary__btn">
+              Continue
+            </button>
           </form>
         </div>
         <div>

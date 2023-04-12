@@ -25,3 +25,5 @@ export const FormProvider = ({ children }) => {
     </FormContext.Provider>
   );
 };
+
+export default FormContext;

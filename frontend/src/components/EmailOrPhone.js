@@ -1,8 +1,20 @@
 import React from "react";
 import classes from "./EmailOrPhone.module.css";
 import ProgressBar from "./ProgressBar";
+import useFormContext from "../hooks/useFormContext";
 
 const EmailOrPhone = () => {
+  const { setStep } = useFormContext();
+
+  const onGoingBack = () => {
+    console.log("clicked");
+    setStep((prevState) => prevState - 1);
+  };
+
+  const nextStep = () => {
+    setStep((prevState) => prevState + 1);
+  };
+
   return (
     <section className={classes.emailPhone__section}>
       <h3 className={classes.welcome}>Welcome to Website</h3>
@@ -19,7 +31,9 @@ const EmailOrPhone = () => {
           </h5>
         </div>
         <div className="mobile__img">
-          <img src={require("../assets/mobile.png")} alt="phone" />
+          <button onClick={onGoingBack}>
+            <img src={require("../assets/mobile.png")} alt="phone" />
+          </button>
         </div>
         <div>
           <form className={classes.form}>
@@ -27,7 +41,9 @@ const EmailOrPhone = () => {
             <input id="mobile" placeholder="Enter your mobile no." />
             <label htmlFor="email">Email address</label>
             <input id="email" placeholder="Enter your email id" />
-            <button className="btn__width primary__btn">Continue</button>
+            <button onClick={nextStep} className="btn__width primary__btn">
+              Continue
+            </button>
           </form>
         </div>
         <div>
