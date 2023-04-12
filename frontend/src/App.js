@@ -1,10 +1,15 @@
-import "./App.css";
+import classes from "./App.module.css";
+import Form from "./components/Form";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-    </div>
+    <section className={classes.container}>
+      <article className={classes.header}>
+        <h1>Website</h1>
+        <button className="secondary_btn">Need Help?</button>
+      </article>
+      <Form />
+    </section>
   );
 }
 
