@@ -35,4 +35,8 @@ app.use((req, res, next) => {
 
 app.use(errorHandler);
 
+app.post("/", (req, res) => {
+  res.send("Hello");
+});
+
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
