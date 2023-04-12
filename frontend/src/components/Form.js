@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Welcome from "./Welcome"; //
 import useFormContext from "../hooks/useFormContext";
 import EmailOrPhone from "./EmailOrPhone";
@@ -8,8 +8,6 @@ import Success from "./Sucess";
 
 const Form = () => {
   const { step } = useFormContext();
-
-  //   useEffect(() => {}, [step]);
 
   return (
     <section>
