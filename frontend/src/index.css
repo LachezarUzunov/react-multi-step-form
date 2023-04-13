@@ -155,3 +155,52 @@ span {
   padding-top: 1.3rem;
   padding-left: 1.7rem;
 }
+
+@media screen and (max-width: 450px) {
+  h1 {
+    font-weight: 600;
+    font-size: 2.1rem;
+    line-height: 2.95rem;
+  }
+
+  /* h3 {
+    font-size: 2.4rem;
+    line-height: 3.375rem;
+    font-weight: 600;
+    color: #333333;
+  } */
+
+  h4 {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.95rem;
+  }
+  /* 
+  h5 {
+    font-size: 1.6rem;
+    line-height: 2.56rem;
+    color: #8181a5;
+  } */
+
+  /* p {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-top: 2rem;
+  } */
+
+  .secondary__btn {
+    font-size: 1.2rem;
+    letter-spacing: 0.089rem;
+    width: 12.6rem;
+    height: 3.2rem;
+  }
+
+  .primary__btn {
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+    height: 3.2rem;
+    width: 17.9rem;
+  }
+}

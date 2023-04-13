@@ -35,11 +35,7 @@ const Welcome = () => {
         </div>
         <div className={classes.box__text}>
           <h4>I have an account</h4>
-          <button
-            onClick={onChoose}
-            name="hasAccount"
-            className={`${classes.btn__width} primary__btn`}
-          >
+          <button onClick={onChoose} name="hasAccount" className="primary__btn">
             Login Now
           </button>
         </div>

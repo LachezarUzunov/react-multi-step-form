@@ -38,3 +38,32 @@
 .btn__width {
   width: 27.4rem;
 }
+
+@media screen and (max-width: 450px) {
+  .welcome__section {
+    padding-top: 11.4rem;
+  }
+
+  .hello {
+    padding-bottom: 0.6rem;
+  }
+
+  .box {
+    width: 31.1rem;
+    height: 12.8rem;
+  }
+
+  .box__image {
+    padding-left: 2.89rem;
+    padding-right: 4.38rem;
+  }
+
+  .box__image img {
+    width: 3.91rem;
+    height: 3.91rem;
+  }
+
+  .box__text {
+    padding-top: 3rem;
+  }
+}
