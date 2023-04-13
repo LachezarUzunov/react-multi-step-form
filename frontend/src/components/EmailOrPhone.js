@@ -102,8 +102,8 @@ const EmailOrPhone = () => {
               value={data.emailAddress}
             />
             {errorEmail ? (
-              <div className={classes.error_box}>
-                <p>Please enter your email id</p>
+              <div className="error_box">
+                <p className="error_para">Please enter your email id</p>
               </div>
             ) : null}
             <button onClick={nextStep} className="btn__width primary__btn">

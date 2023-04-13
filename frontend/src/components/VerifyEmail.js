@@ -1,18 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./VerifyEmail.module.css";
 import Card from "./Card";
 import ProgressBar from "./ProgressBar";
 import useFormContext from "../hooks/useFormContext";
 
 const VerifyEmail = () => {
-  const { setStep } = useFormContext();
+  const { setStep, verificationCode, setVerificationCode, onValidation } =
+    useFormContext();
 
-  const nextStep = () => {
-    setStep((prevState) => prevState + 1);
-  };
+  const [errorInput, setErrorInput] = useState(false);
+
+  useEffect(() => {
+    if (verificationCode.length === 6) {
+      setErrorInput(false);
+    }
+  }, [verificationCode]);
 
   const previousStep = () => {
     setStep((prevState) => prevState - 1);
+  };
+
+  const onChange = (e) => {
+    setVerificationCode(e.target.value);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    if (verificationCode.length !== 6) {
+      setErrorInput(true);
+      return;
+    } else {
+      onValidation(verificationCode);
+      setStep((prevState) => prevState + 1);
+      setErrorInput(false);
+    }
   };
 
   return (
@@ -39,8 +61,15 @@ const VerifyEmail = () => {
             <input
               id="mobile"
               placeholder="Enter 6-digit verification code here"
+              value={verificationCode}
+              onChange={onChange}
             />
-            <button onClick={nextStep} className="btn__width primary__btn">
+            {errorInput ? (
+              <div className="error_box">
+                <p className="error_para">Please enter 6 digit code</p>
+              </div>
+            ) : null}
+            <button onClick={onSubmit} className="btn__width primary__btn">
               Continue
             </button>
           </form>

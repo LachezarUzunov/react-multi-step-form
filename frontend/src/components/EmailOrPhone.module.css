@@ -40,18 +40,3 @@
 .error {
   border: 1px solid #eb5757;
 }
-
-.error_box {
-  background-color: #fdf0f0;
-  height: 4.5rem;
-  width: 34.5rem;
-  border-radius: 5px;
-}
-
-.error_box p {
-  font-size: 1.6rem;
-  color: #eb5757;
-  font-weight: 400;
-  padding-top: 1.3rem;
-  padding-left: 1.7rem;
-}

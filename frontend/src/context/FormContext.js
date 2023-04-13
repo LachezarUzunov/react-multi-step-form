@@ -11,7 +11,7 @@ export const FormProvider = ({ children }) => {
   });
   const [step, setStep] = useState(0);
 
-  const [verificationCode, setVerificationCode] = useState();
+  const [verificationCode, setVerificationCode] = useState("");
 
   const [token, setToken] = useState("");
 
