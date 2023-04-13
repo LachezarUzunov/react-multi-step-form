@@ -7,3 +7,10 @@
   padding-bottom: 5rem;
   min-height: 42rem;
 }
+
+@media screen and (max-width: 450px) {
+  .card {
+    width: 37.5rem;
+    min-height: 47.2rem;
+  }
+}

@@ -163,30 +163,21 @@ span {
     line-height: 2.95rem;
   }
 
-  /* h3 {
-    font-size: 2.4rem;
-    line-height: 3.375rem;
-    font-weight: 600;
-    color: #333333;
-  } */
-
   h4 {
     font-weight: 400;
     font-size: 1.6rem;
     line-height: 2.95rem;
   }
-  /* 
-  h5 {
-    font-size: 1.6rem;
-    line-height: 2.56rem;
-    color: #8181a5;
-  } */
 
   /* p {
     font-size: 1.4rem;
     text-align: center;
     margin-top: 2rem;
   } */
+
+  input {
+    width: 31rem;
+  }
 
   .secondary__btn {
     font-size: 1.2rem;
@@ -202,5 +193,29 @@ span {
     font-size: 1.2rem;
     height: 3.2rem;
     width: 17.9rem;
+  }
+
+  .verify__section {
+    margin-top: 16.5rem;
+    min-height: 49.3rem;
+  }
+
+  .btn__width {
+    width: 31rem;
+    height: 4.5rem;
+  }
+
+  .error_box {
+    width: 31rem;
+  }
+
+  .mobile__img {
+    text-align: center;
+    margin-top: 2.3rem;
+    margin-bottom: 3rem;
+  }
+
+  .mobile__img img {
+    width: 4.1rem;
   }
 }

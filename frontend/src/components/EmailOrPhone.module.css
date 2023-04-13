@@ -40,3 +40,26 @@
 .error {
   border: 1px solid #eb5757;
 }
+
+@media screen and (max-width: 450px) {
+  .welcome {
+    margin-top: 11.5rem;
+  }
+
+  .box {
+    margin-top: 2rem;
+    width: 37.5rem;
+  }
+
+  .header {
+    margin-top: 3.5rem;
+    margin-left: 2.3rem;
+    display: flex;
+    gap: 2.55rem;
+  }
+
+  .form {
+    margin: 0 auto;
+    width: 31rem;
+  }
+}

@@ -1,14 +1,5 @@
-.container {
-  padding: 2.2rem 4rem;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
+  padding: 2.2rem 4rem;
 }
-
-/* @media screen and (max-width: 450px) {
-  .container {
-    padding: 
-  }
-} */

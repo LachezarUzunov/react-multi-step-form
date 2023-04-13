@@ -10,7 +10,6 @@ export const FormProvider = ({ children }) => {
     newUser: false,
   });
   const [step, setStep] = useState(0);
-  const [success, setSuccess] = useState(false);
 
   const [errorInput, setErrorInput] = useState(false);
 
