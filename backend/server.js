@@ -1,13 +1,9 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
 const colors = require("colors");
-// const { errorHandler } = require("./middleware/errorMiddleware");
-const connectDB = require("./config/db");
-const { generate } = require("./controllers/userController");
-const PORT = process.env.PORT || 5000;
 
-// Connect to database
-connectDB();
+const { generate, verify } = require("./controllers/userController");
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 
@@ -36,5 +32,6 @@ app.use((req, res, next) => {
 
 // ROUTES
 app.post("/api", generate);
+app.post("/verify", verify);
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

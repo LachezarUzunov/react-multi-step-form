@@ -9,6 +9,11 @@ export const FormProvider = ({ children }) => {
     emailAddress: "",
     newUser: false,
   });
+  const [step, setStep] = useState(0);
+
+  const [verificationCode, setVerificationCode] = useState();
+
+  const [token, setToken] = useState("");
 
   const onSubmit = async () => {
     console.log(data);
@@ -22,6 +27,8 @@ export const FormProvider = ({ children }) => {
       });
 
       const result = await res.json();
+      setToken(result.token);
+      console.log(result);
       return result;
     } catch (error) {
       const message =
@@ -34,19 +41,23 @@ export const FormProvider = ({ children }) => {
     }
   };
 
-  const [step, setStep] = useState(0);
-
-  const title = {
-    0: "Welcome",
-    1: "Email or Phone",
-    2: "Verify Mobile",
-    3: "Verify Email",
-    4: "Success",
+  const onValidation = () => {
+    console.log(verificationCode);
   };
 
   return (
     <FormContext.Provider
-      value={{ data, setData, step, setStep, title, onSubmit }}
+      value={{
+        data,
+        setData,
+        step,
+        setStep,
+        onSubmit,
+        verificationCode,
+        setVerificationCode,
+        onValidation,
+        token,
+      }}
     >
       {children}
     </FormContext.Provider>
