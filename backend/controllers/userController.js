@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 
 const generate = (req, res) => {
-  console.log(req.body);
   const { mobileNum, emailAddress } = req.body;
 
   if (
@@ -21,7 +20,17 @@ const generate = (req, res) => {
 };
 
 const verify = (req, res, next) => {
-  console.log(req.body);
+  const sessionCode = req.sessionCode;
+  const submittedCode = req.body.code;
+  console.log(sessionCode);
+  console.log(submittedCode);
+
+  if (sessionCode != submittedCode) {
+    res.status(403);
+    throw new Error("Not Authorized");
+  } else {
+    res.status(200).json({ message: "Sucess" });
+  }
 };
 
 module.exports = {

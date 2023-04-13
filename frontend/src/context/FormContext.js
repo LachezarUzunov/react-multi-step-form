@@ -18,7 +18,7 @@ export const FormProvider = ({ children }) => {
   const onSubmit = async () => {
     console.log(data);
     try {
-      const res = await fetch(`${APP_URL}/s`, {
+      const res = await fetch(APP_URL, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -43,11 +43,10 @@ export const FormProvider = ({ children }) => {
 
   const onValidation = async () => {
     console.log(verificationCode);
-    console.log(token);
     try {
-      const response = await fetch(`${APP_URL}`, {
+      const response = await fetch(`${APP_URL}/verify`, {
         method: "POST",
-        body: JSON.stringify(verificationCode),
+        body: JSON.stringify({ code: verificationCode }),
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",

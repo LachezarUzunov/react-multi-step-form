@@ -13,6 +13,7 @@ const protect = (req, res, next) => {
       // Verify token
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
+      req.sessionCode = decoded.randomNums;
       next();
     } catch (error) {
       console.log(error);
