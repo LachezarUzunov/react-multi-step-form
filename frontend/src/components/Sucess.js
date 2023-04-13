@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import ProgressBar from "./ProgressBar";
 
-const Success = ({ props }) => {
+const Success = () => {
   return (
     <section className="verify__section">
       <h3 className="verify__header">Verify your mobile number</h3>

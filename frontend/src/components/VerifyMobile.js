@@ -1,20 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Card from "./Card";
 import ProgressBar from "./ProgressBar";
 import classes from "./VerifyMobile.module.css";
 import useFormContext from "../hooks/useFormContext";
 
 const VerifyMobile = () => {
-  const { setStep, verificationCode, setVerificationCode, onValidation } =
-    useFormContext();
-
-  const [errorInput, setErrorInput] = useState(false);
+  const {
+    setStep,
+    verificationCode,
+    setVerificationCode,
+    onValidation,
+    errorInput,
+    setErrorInput,
+  } = useFormContext();
 
   useEffect(() => {
     if (verificationCode.length === 6) {
       setErrorInput(false);
     }
-  }, [verificationCode]);
+  }, [verificationCode, setErrorInput]);
 
   const nextStep = () => {
     setStep((prevState) => prevState + 1);
@@ -32,7 +36,6 @@ const VerifyMobile = () => {
       return;
     } else {
       onValidation(verificationCode);
-      setStep((prevState) => prevState + 2);
       setErrorInput(false);
     }
   };
@@ -66,7 +69,10 @@ const VerifyMobile = () => {
             />
             {errorInput ? (
               <div className="error_box">
-                <p className="error_para">Please enter 6 digit code</p>
+                <p className="error_para">
+                  {" "}
+                  Invalid code, enter 6 digit valid code
+                </p>
               </div>
             ) : null}
             <button onClick={onSubmit} className="btn__width primary__btn">

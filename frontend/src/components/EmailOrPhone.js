@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import classes from "./EmailOrPhone.module.css";
 import ProgressBar from "./ProgressBar";
 import useFormContext from "../hooks/useFormContext";
 
 const EmailOrPhone = () => {
-  const { setStep, setData, data, onSubmit } = useFormContext();
-  const [errorMobile, setErrorMobile] = useState(false);
-  const [errorEmail, setErrorEmail] = useState(false);
+  const { setStep, setData, data, onSubmit, errorInput, setErrorInput } =
+    useFormContext();
+
   const onGoingBack = () => {
     console.log("clicked");
     setStep((prevState) => prevState - 1);
@@ -21,24 +21,24 @@ const EmailOrPhone = () => {
 
   useEffect(() => {
     if (data.mobileNum.trim().length === 10) {
-      setErrorMobile(false);
+      setErrorInput(false);
     }
-  }, [data.mobileNum]);
+  }, [data.mobileNum, setErrorInput]);
 
   useEffect(() => {
     if (
       data.emailAddress.trim().length > 5 &&
       data.emailAddress.trim().includes("@")
     ) {
-      setErrorEmail(false);
+      setErrorInput(false);
     }
-  }, [data.emailAddress]);
+  }, [data.emailAddress, setErrorInput]);
 
   const nextStep = (e) => {
     e.preventDefault();
 
     if (data.mobileNum.trim().length !== 10) {
-      setErrorMobile(true);
+      setErrorInput(true);
       return;
     }
 
@@ -46,13 +46,12 @@ const EmailOrPhone = () => {
       data.emailAddress.trim().length <= 5 ||
       !data.emailAddress.includes("@")
     ) {
-      setErrorEmail(true);
+      setErrorInput(true);
       return;
     }
 
     onSubmit(data);
-    setErrorEmail(false);
-    setErrorMobile(false);
+    setErrorInput(false);
     setStep((prevState) => prevState + 1);
   };
 
@@ -81,27 +80,27 @@ const EmailOrPhone = () => {
             <label htmlFor="mobileNum">Mobile No.</label>
             <input
               onChange={onChange}
-              className={`${errorMobile ? classes.error : null}`}
+              className={`${errorInput ? classes.error : null}`}
               name="mobileNum"
               id="mobileNum"
               placeholder="Enter your mobile no."
               value={data.mobileNum}
             />
-            {errorMobile ? (
-              <div className={classes.error_box}>
-                <p>Please enter your mobile no.</p>
+            {errorInput ? (
+              <div className="error_box">
+                <p className="error_para">Please enter your mobile no.</p>
               </div>
             ) : null}
             <label htmlFor="emailAddress">Email address</label>
             <input
               onChange={onChange}
-              className={`${errorEmail ? classes.error : null}`}
+              className={`${errorInput ? classes.error : null}`}
               name="emailAddress"
               id="emailAddress"
               placeholder="Enter your email id"
               value={data.emailAddress}
             />
-            {errorEmail ? (
+            {errorInput ? (
               <div className="error_box">
                 <p className="error_para">Please enter your email id</p>
               </div>

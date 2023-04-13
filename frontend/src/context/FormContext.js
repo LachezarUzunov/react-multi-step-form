@@ -10,6 +10,9 @@ export const FormProvider = ({ children }) => {
     newUser: false,
   });
   const [step, setStep] = useState(0);
+  const [success, setSuccess] = useState(false);
+
+  const [errorInput, setErrorInput] = useState(false);
 
   const [verificationCode, setVerificationCode] = useState("");
 
@@ -42,7 +45,6 @@ export const FormProvider = ({ children }) => {
   };
 
   const onValidation = async () => {
-    console.log(verificationCode);
     try {
       const response = await fetch(`${APP_URL}/verify`, {
         method: "POST",
@@ -53,9 +55,16 @@ export const FormProvider = ({ children }) => {
         },
       });
 
+      if (response.status === 403) {
+        setErrorInput(true);
+        const result = await response.json();
+
+        throw new Error(result);
+      }
+
       if (response.status === 200) {
         const success = await response.json();
-        console.log(success);
+        setStep(4);
         return success;
       }
     } catch (error) {
@@ -80,6 +89,8 @@ export const FormProvider = ({ children }) => {
         verificationCode,
         setVerificationCode,
         onValidation,
+        errorInput,
+        setErrorInput,
       }}
     >
       {children}
