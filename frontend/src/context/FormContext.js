@@ -18,7 +18,7 @@ export const FormProvider = ({ children }) => {
   const onSubmit = async () => {
     console.log(data);
     try {
-      const res = await fetch(APP_URL, {
+      const res = await fetch(`${APP_URL}/s`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -43,9 +43,9 @@ export const FormProvider = ({ children }) => {
 
   const onValidation = async () => {
     console.log(verificationCode);
-
+    console.log(token);
     try {
-      const response = await fetch(`http://localhost:5000/verify`, {
+      const response = await fetch(`${APP_URL}`, {
         method: "POST",
         body: JSON.stringify(verificationCode),
         headers: {

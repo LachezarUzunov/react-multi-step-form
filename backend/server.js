@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const colors = require("colors");
 
-const { generate, verify } = require("./controllers/userController");
+const { protect } = require("./middleware/protect");
 const PORT = process.env.PORT || 5000;
 
 const app = express();
@@ -31,7 +31,6 @@ app.use((req, res, next) => {
 });
 
 // ROUTES
-app.post("/api", generate);
-app.post("/verify", verify);
+app.use("/api", require("./routes/verificationRoutes"));
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
