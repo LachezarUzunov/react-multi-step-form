@@ -12,6 +12,7 @@ const VerifyEmail = () => {
     onValidation,
     setErrorInput,
     errorInput,
+    data,
   } = useFormContext();
 
   useEffect(() => {
@@ -75,7 +76,7 @@ const VerifyEmail = () => {
               </div>
             ) : null}
             <button onClick={onSubmit} className="btn__width primary__btn">
-              Continue
+              {data.newUser ? "Create account" : "Continue"}
             </button>
           </form>
         </div>

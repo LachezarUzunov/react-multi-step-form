@@ -3,9 +3,21 @@ import classes from "./Welcome.module.css";
 import useFormContext from "../hooks/useFormContext";
 
 const Welcome = () => {
-  const { setStep } = useFormContext();
+  const { setStep, setData } = useFormContext();
 
-  const onChoose = () => {
+  const onChoose = (e) => {
+    if (e.target.name === "hasNoAccount") {
+      setData((prevState) => ({
+        ...prevState,
+        newUser: true,
+      }));
+    } else {
+      setData((prevState) => ({
+        ...prevState,
+        newUser: false,
+      }));
+    }
+
     setStep((prevState) => prevState + 1);
   };
   return (

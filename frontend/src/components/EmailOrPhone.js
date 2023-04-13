@@ -106,7 +106,7 @@ const EmailOrPhone = () => {
               </div>
             ) : null}
             <button onClick={nextStep} className="btn__width primary__btn">
-              Continue
+              {data.newUser ? "Create account" : "Continue"}
             </button>
           </form>
         </div>
