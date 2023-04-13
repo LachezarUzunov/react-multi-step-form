@@ -41,8 +41,33 @@ export const FormProvider = ({ children }) => {
     }
   };
 
-  const onValidation = () => {
+  const onValidation = async () => {
     console.log(verificationCode);
+
+    try {
+      const response = await fetch(`http://localhost:5000/verify`, {
+        method: "POST",
+        body: JSON.stringify(verificationCode),
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.status === 200) {
+        const success = await response.json();
+        console.log(success);
+        return success;
+      }
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      console.log(message);
+    }
   };
 
   return (
@@ -56,7 +81,6 @@ export const FormProvider = ({ children }) => {
         verificationCode,
         setVerificationCode,
         onValidation,
-        token,
       }}
     >
       {children}
